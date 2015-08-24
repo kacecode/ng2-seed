@@ -2,10 +2,11 @@ var autoprefixer = require('autoprefixer-core');
 
 module.exports = {
     entry: {
-        './src/index.js': [
+        './src/index.ts': [
             'reflect-metadata',
             'rx',
-            './src/index.js'
+            'zone',
+            './src/index.ts'
         ]
     },
     output: {
@@ -14,19 +15,24 @@ module.exports = {
     },
     module: {
         loaders: [
-            {
+            /*{
                 loader: 'babel-loader',
                 test: /\.js$/,
+                exclude: /node_modules/
+            },*/
+            {
+                test: /\.ts$/,
+                loader: 'awesome-typescript-loader',
                 exclude: /node_modules/
             },
             {
                 test: /\.less$/,
-                loader: 'style-loader!css-loader!less!postcss-loader'
+                loader: 'style-loader!css-loader!postcss-loader!less'
             }
         ]
     },
     resolve: {
-        extensions: ['', '.js', '.json', '.coffee']
+        extensions: ['', '.ts', '.js']
     },
     postcss: [ autoprefixer({ browsers: ['last 2 versions'] }) ],
     devServer: {

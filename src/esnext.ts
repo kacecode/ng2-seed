@@ -1,4 +1,6 @@
 export class Bar {
+    name: string;
+
     constructor(name) {
         this.name = name;
     }
