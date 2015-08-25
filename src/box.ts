@@ -3,24 +3,31 @@ import {Component, View} from 'angular2/angular2';
 
 
 @Component({
-    selector: "box"
+    selector: "box",
+    properties: [
+        "color",
+    ]
 })
 @View({
     template: `
-        <div>
+        <div (click)="mono()" [style.background-color]="color">
         </div>
     `,
     styles: [`
     div {
         height: 100px;
         width: 100px;
-        background-color: orange;
     }`]
 })
 export class Box {
     color: string;
 
+    ready() {
+        console.log("I'm ready");
+    }
+
     mono() {
+        console.log(`color was ${this.color}`);
         this.color = "gray";
     }
 }
