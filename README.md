@@ -13,7 +13,7 @@ Install the angular-cli -- This may take some time to compile, and features a bu
 
 Locally to the project, install the npm dependencies
 
-`npm install && bower install`
+`npm install`
 
 
 #Run#
