@@ -8,8 +8,8 @@ import {Box} from './box';
 })
 @View({
     template: `
-        <div class="container-of-boxes">
-            <box *ng-for="#color of colors" color="{{ color }}"></box>
+        <div class="container-of-boxes noselect">
+            <box *ng-for="#color of colors" color="{{ color }}" (changecolor)="doit($event)" class="noselect"></box>
         </div>
     `,
     directives: [Box, NgFor],
@@ -23,6 +23,11 @@ import {Box} from './box';
         box {
             margin: 5px;
         }
+        `,
+        `
+        .noselect {
+            user-select: none;
+        }
         `
     ]
 })
@@ -30,14 +35,13 @@ export class BoxArray {
     colors:Array<string>;
 
     constructor () {
-        this.colors = ["red", "green", "blue"];
+        //this.colors = ["red", "green", "blue"];
+        this.colors = ["cyan", "yellow", "magenta", "black"];
     }
 
-    parentClicked(color:string) {
-        console.log(`child's color was ${color}`);
-    }
-
-    doit () {
-        console.log('yep');
+    doit (box:any) {
+        console.dir(box);
+        let loc = (this.colors.indexOf(box.color) + 1) % this.colors.length;
+        box._colorCallback(this.colors[loc]);
     }
 }
