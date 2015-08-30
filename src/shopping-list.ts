@@ -6,7 +6,7 @@ import {Component, View, NgFor} from 'angular2/angular2';
 })
 @View({
     template: `
-    <input type="text" #thing (keyup)>
+    <input type="text" #thing (keyup) (keyup.enter)="addThing(thing.value)">
     <p>{{ thing.value }}</p>
     <button (click)="addThing(thing.value)">Add It!</button>
     <ul>
@@ -23,7 +23,8 @@ export class ShoppingList {
     }
 
     addThing(thing:string) {
-        
-        this.items.push(thing);
+        if (this.items.indexOf(thing) === -1) {
+            this.items.push(thing);
+        }
     }
 }
