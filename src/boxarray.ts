@@ -27,6 +27,9 @@ import {Box} from './box';
         `
         .noselect {
             user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
         }
         `
     ]
