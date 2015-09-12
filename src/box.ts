@@ -29,15 +29,6 @@ export class Box {
     // Declare an event for the parent to catch -- Listed above in @Component to allow propegation.
     changecolor = new EventEmitter();
 
-    ready() {
-        console.log("I'm ready");
-    }
-
-    mono() {
-        console.log(`color was ${this.color}`);
-        this.color = "gray";
-    }
-
     changeColor (current:string) {
         console.log(`in changeColor with ${current}`);
         this.changecolor.next(this);

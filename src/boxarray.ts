@@ -48,7 +48,6 @@ export class BoxArray {
     }
 
     doit (box:any) {
-        console.dir(box);
         let loc = (this.colors.indexOf(box.color) + 1) % this.colors.length;
         box._colorCallback(this.colors[loc]);
     }
