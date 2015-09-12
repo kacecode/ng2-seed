@@ -10,6 +10,9 @@ import {BoxArray} from './boxarray';
     ],
     events: ['changecolor']
 })
+// Special syntax
+// [x]=y expands to obj.x=y
+// (x)=arg expands to obj.on(x, arg)
 @View({
     template: `
         <div (click)="changeColor(color)" [style.background-color]="color">
@@ -23,6 +26,7 @@ import {BoxArray} from './boxarray';
 })
 export class Box {
     color: string;
+    // Declare an event for the parent to catch -- Listed above in @Component to allow propegation.
     changecolor = new EventEmitter();
 
     ready() {

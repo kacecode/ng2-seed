@@ -6,6 +6,11 @@ import {Box} from './box';
 @Component({
     selector: "box-array",
 })
+// NOTES:
+// NgFor must be imported.
+// * is used to delinate directives (note difference between Component & Directive) which manipulate the DOM.
+// # is used to create a reference which can be used elsewhere in the template
+// (changecolor) binds to Box's declared event to handle it as needed.
 @View({
     template: `
         <div class="container-of-boxes noselect">
