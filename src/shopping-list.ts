@@ -18,9 +18,11 @@ class ShoppingItem {
 @Component({
     selector: "shopping-list"
 })
+// (keyup)="x" replaces (keyup) to trigger change detection
+// due to https://github.com/angular/angular/issues/3754
 @View({
     template: `
-    <input type="text" #thing (keyup) (keyup.enter)="addThing(thing.value)">
+    <input type="text" #thing (keyup)="x" (keyup.enter)="addThing(thing.value)">
     <p>{{ thing.value }}</p>
     <button (click)="addThing(thing.value)">Add It!</button>
     <ul>
