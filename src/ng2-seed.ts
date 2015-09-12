@@ -1,15 +1,19 @@
 /// <reference path="./typings/angular2/angular2.d.ts"/>
 /// <reference path="./typings/angular2/router.d.ts"/>
+/// <reference path="./typings/angular2/http.d.ts"/>
 import {Component, View, bootstrap} from 'angular2/angular2';
 import {routerInjectables, RouteConfig, RouterOutlet, RouterLink} from 'angular2/router';
+import {HTTP_BINDINGS} from 'angular2/http';
 import {Home} from './home';
 import {BoxArray} from './boxarray';
 import {ShoppingList} from './shopping-list';
+import {Pirates} from './pirates';
 
 @RouteConfig([
     { path: '/', component: Home, as: 'home' },
     { path: '/colors', component: BoxArray, as: 'color' },
-    { path: '/shopping', component: ShoppingList, as: 'shop' }
+    { path: '/shopping', component: ShoppingList, as: 'shop' },
+    { path: '/pirates', component: Pirates, as: 'pirates' }
 ])
 @Component({
     selector: 'ng2-seed-app',
@@ -20,4 +24,4 @@ import {ShoppingList} from './shopping-list';
     styleUrls: ['ng2-seed.css']
 })
 class Ng2SeedApp {}
-bootstrap(Ng2SeedApp, [routerInjectables]);
+bootstrap(Ng2SeedApp, [routerInjectables, HTTP_BINDINGS]);
