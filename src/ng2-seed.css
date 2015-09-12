@@ -1,0 +1,9 @@
+header ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}	
+
+header ul li {
+  list-style: none;
+}

@@ -16,7 +16,8 @@ import {ShoppingList} from './shopping-list';
     injectables: []})
 @View({
     templateUrl: 'ng2-seed.html',
-    directives: [RouterOutlet, RouterLink]
+    directives: [RouterOutlet, RouterLink],
+    styleUrls: ['ng2-seed.css']
 })
 class Ng2SeedApp {}
 bootstrap(Ng2SeedApp, [routerInjectables]);
